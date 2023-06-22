@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: HelveticaNeueCyr, sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header__nav {
+    display: flex;
+    gap: 10px;
+}
+
+.header__radio {
+    width: 70px;
+    height: 21px;
+    border: 0.5px solid black;
+    border-radius: 34px;
+}
+
+.title--large {
+    color: #000;
+    font-size: 60px;
+    font-family: HelveticaNeueCyr;
+    text-transform: uppercase;
+}
+
+.title--small {
+    font-size: 34px;
+    text-transform: lowercase;
+}
+
+.link:link,
+.link:visited,
+.link:hover,
+.link:active {
+    color: #000;
+    font-size: 27px;
+    font-family: HelveticaNeueCyr;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 3px;
+    margin: 0 20px;
+}
+
+.school__name {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.period {
+    color: #000;
+    font-size: 34px;
+    font-family: HelveticaNeueCyr;
+    text-transform: lowercase;
+}
+
+.time-interval {
+    color: #000;
+    font-size: 15px;
+    font-family: HelveticaNeueCyr;
+    text-transform: lowercase;
+    word-break: break-word;
+}
+
+.artist-name {
+    color: #000;
+    font-size: 21px;
+    font-family: HelveticaNeueCyr;
+    word-break: break-word;
+}
+
+.school p {
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.footer {
+    height: 0;
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .title--large {
+        font-size: 30px;
+    }
+
+    .link {
+        font-size: 20px;
+    }
+
+    .main {
+        grid-template-columns: 1fr;
+        margin: 0 10px;
+    }
+
+    .title--small {
+        font-size: 24px;
+    }
+
+    .school__name {
+        font-size: 18px;
+    }
+
+    .school p {
+        font-size: 18px;
+    }
+}
