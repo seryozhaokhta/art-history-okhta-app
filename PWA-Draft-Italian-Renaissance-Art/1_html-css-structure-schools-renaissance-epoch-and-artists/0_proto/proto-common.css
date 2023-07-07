@@ -1,0 +1,322 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: HelveticaNeueCyr, sans-serif;
+    position: relative;
+    text-align: left;
+}
+
+header {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "artist section1 section2 logo";
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 54px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: -4px;
+}
+
+p {
+    font-size: 16px;
+    max-width: 540px;
+    margin-bottom: 1em;
+}
+
+.artist-container {
+    grid-area: artist;
+    text-align: left;
+    width: 50vw;
+}
+
+.header-artist-name {
+    grid-area: artist;
+
+}
+
+.artist-lifespan {
+    font-size: 21px;
+
+}
+
+.header-logo {
+    position: absolute;
+    grid-area: logo;
+    width: 36px;
+    height: auto;
+    right: 10px;
+}
+
+.header-section-1 {
+    grid-area: section1;
+
+}
+
+.header-section-2 {
+    grid-area: section2;
+
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 1rem;
+    z-index: 1;
+    flex-grow: 1;
+}
+
+.grid-item-bibliography {
+    grid-row-start: 1;
+}
+
+.grid-item-text,
+.grid-item-art,
+.grid-item-bibliography {
+    position: relative;
+    /* border: 1px solid #ddd; */
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.5s ease-in-out;
+}
+
+
+.grid-item-text:hover,
+.grid-item-art:hover,
+.grid-item-bibliography:hover {
+    transform: scale(1.005);
+    transition: transform 0.5s ease-in-out;
+}
+
+
+.bibliography-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.bibliography-list li {
+    padding: 10px 0;
+    /* border-bottom: 1px solid #ddd; */
+}
+
+.bibliography-list li:last-child {
+    border-bottom: none;
+}
+
+.title--large,
+.title--small {
+    color: #000;
+    text-transform: uppercase;
+}
+
+.link {
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.back-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.back-button svg {
+    width: 2em;
+    height: 2em;
+}
+
+.text-grid {
+    display: grid;
+    grid-gap: 20px;
+}
+
+/* .art-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+} */
+
+.art-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.text-item {
+    padding: 10px;
+    /* border: 1px solid #ddd; */
+    transition: transform 0.5s ease-in-out;
+}
+
+.text-item p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.text-item:hover {
+    transform: scale(1.005);
+    transition: transform 0.5s ease-in-out;
+}
+
+.grid-item-art {
+    width: 100%;
+}
+
+
+.art-item:hover {
+    transform: scale(1.005);
+    transition: transform 0.5s ease-in-out;
+}
+
+.art-img {
+    width: 100%;
+    height: auto;
+}
+
+.back-icon {
+    position: relative;
+    width: 2em;
+    height: 2em;
+    right: 20px;
+}
+
+.hide-show-icon {
+    position: none;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.grid-item-art.expanded {
+    grid-column-start: span 3;
+}
+
+.collapsed {
+    width: 10;
+    height: 10;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+}
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: block;
+    background-color: black;
+    z-index: 999;
+}
+
+.fullscreen h2,
+.fullscreen p {
+    color: white;
+}
+
+@media screen and (max-width: 680px) {
+
+    .grid-container,
+    .text-grid,
+    .art-grid,
+    .grid-item-bibliography {
+        grid-template-columns: 2fr;
+        margin: 0 10px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+
+    header,
+    .header-artist-name {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+
+    .header-logo {
+        width: 30px;
+        height: auto;
+    }
+}
+
+
+
+
+.tippy-box[data-theme~='myCustomTheme'] {
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.tippy-box {
+    transition: transform 0.3s ease-out;
+}
+
+.tippy-box[data-animation="scale"] {
+    transform-origin: center;
+}
+
+.tippy-box[data-animation="scale"][data-state="hidden"] {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.tippy-box[data-animation="scale"][data-state="visible"] {
+    transform: scale(1);
+}
+
+.artist-link,
+.year-link {
+    display: inline-block;
+    padding: 2px;
+    border: 0.01px solid #c9c9c9;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: #000;
+}
+
+.artist-link:hover,
+.year-link:hover {
+    background-color: #c9c9c9;
+}
